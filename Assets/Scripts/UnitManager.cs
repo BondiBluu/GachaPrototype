@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum UnitStarRarity
 {
@@ -19,14 +20,21 @@ public enum UnitElement
     DARK,
 }
 
+public enum UnitType
+{
+    ATTACK,
+    TANK,
+    BALANCE,
+    HEALING,
+    MAGIC
+}
+
 [CreateAssetMenu(fileName = "New Unit", menuName = "Characters/Unit")]
 
 public class UnitManager : ScriptableObject
 {
     [SerializeField] string unitName;
-    [SerializeField] int unitLevel;
-    [SerializeField] int unitExp;
-    [SerializeField] int unitMaxExp;
+    [SerializeField] int unitLevel = 1;
     [SerializeField] int unitMaxLevel;
     [SerializeField] int unitAtk;
     [SerializeField] int unitDef;
@@ -34,8 +42,10 @@ public class UnitManager : ScriptableObject
     [SerializeField] int unitSpd;
     [SerializeField] UnitElement element;
     [SerializeField] UnitStarRarity starRarity;
+    [SerializeField] UnitType type;
+    [SerializeField] Sprite characterArt;
 
-public string UnitName
+    public string UnitName
 {
     get { return unitName; }
     set { unitName = value; }
@@ -45,18 +55,6 @@ public int UnitLevel
 {
     get { return unitLevel; }
     set { unitLevel = value; }
-}
-
-public int UnitExp
-{
-    get { return unitExp; }
-    set { unitExp = value; }
-}
-
-public int UnitMaxExp
-{
-    get { return unitMaxExp; }
-    set { unitMaxExp = value; }
 }
 
 public int UnitMaxLevel
@@ -99,5 +97,18 @@ public UnitStarRarity StarRarity
 {
     get { return starRarity; }
     set { starRarity = value; }
+}
+
+public UnitType Type
+{
+    get { return type; }
+    set { type = value; }
+}
+
+public Sprite CharacterArt
+{
+    get { return characterArt; }
+    set { characterArt = value; }
+
 }
 }
